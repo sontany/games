@@ -4,44 +4,7 @@
     <meta charset="UTF-8">
     <title>뱀키우기 게임</title>
     <link rel="stylesheet" href="../../common/common.css"/>
-    <style>
-        html, body {
-            height: 100%;
-            margin: 0;
-        }
-
-        body {
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            background-color: #222;
-        }
-
-        #gameContainer {
-            width: 400px;
-        }
-
-        /* 오버레이 UI: 캔버스 위쪽에 별도의 영역으로 배치 */
-        #overlay {
-            text-align: center;
-            font-size: 16px;
-            background: rgba(0, 0, 0, 0.8);
-            color: #fff;
-            padding: 5px 0;
-        }
-
-        #overlay select {
-            font-size: 16px;
-        }
-
-        canvas {
-            border: 1px solid #333;
-            background-color: #f0f0f0;
-            display: block;
-            /* 터치 기본 동작 제거 */
-            touch-action: none;
-        }
-    </style>
+    <link rel="stylesheet" href="css/snake_raise.css"/>
 </head>
 <body>
 <div id="gameContainer">
@@ -55,6 +18,17 @@
         </select>
     </div>
     <canvas id="gameCanvas" width="400" height="400"></canvas>
+    <!-- 하단에 방향 버튼 추가 -->
+    <div id="controls">
+        <div class="control-row">
+            <button id="btnUp">↑</button>
+        </div>
+        <div class="control-row side-buttons">
+            <button id="btnLeft">←</button>
+            <button id="btnDown">↓</button>
+            <button id="btnRight">→</button>
+        </div>
+    </div>
 </div>
 <script src="js/app.js"></script>
 <footer>

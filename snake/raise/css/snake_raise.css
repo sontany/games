@@ -1,0 +1,70 @@
+html, body {
+    height: 100%;
+    margin: 0;
+}
+
+body {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: #222;
+    flex-direction: column;
+}
+
+#gameContainer {
+    width: 400px;
+}
+
+/* 오버레이 UI: 캔버스 위쪽에 별도의 영역으로 배치 */
+#overlay {
+    text-align: center;
+    font-size: 16px;
+    background: rgba(0, 0, 0, 0.8);
+    color: #fff;
+    padding: 5px 0;
+}
+
+#overlay select {
+    font-size: 16px;
+}
+
+canvas {
+    border: 1px solid #333;
+    background-color: #f0f0f0;
+    display: block;
+}
+
+/* 하단 방향 버튼 영역 */
+#controls {
+    margin-top: 10px;
+    text-align: center;
+}
+
+#controls button {
+    width: 50px;
+    height: 50px;
+    font-size: 20px;
+    margin: 5px;
+    border: none;
+    border-radius: 5px;
+    background-color: #555;
+    color: #fff;
+}
+
+/* 방향키 레이아웃: 위 버튼은 가운데, 좌우는 한 줄, 아래는 가운데 배치 */
+.control-row {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.control-row button {
+    flex: 0 0 auto;
+}
+
+.side-buttons {
+    display: flex;
+    justify-content: space-between;
+    width: 160px;
+    margin: 0 auto;
+}

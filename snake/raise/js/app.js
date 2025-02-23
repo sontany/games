@@ -12,10 +12,6 @@ let velocity = {x: 0, y: 0};
 let score = 0;
 let gameIntervalId;
 
-// 터치 이벤트를 위한 시작 좌표 변수
-let touchStartX = null;
-let touchStartY = null;
-
 function gameLoop() {
     update();
     draw();
@@ -24,7 +20,7 @@ function gameLoop() {
 function update() {
     const head = {x: snake[0].x + velocity.x, y: snake[0].y + velocity.y};
 
-    // 벽 충돌 시 게임 리셋
+    // 벽에 부딪히면 게임 리셋
     if (head.x < 0 || head.x >= tileCount || head.y < 0 || head.y >= tileCount) {
         resetGame();
         return;
@@ -40,7 +36,7 @@ function update() {
 
     snake.unshift(head);
 
-    // 음식 섭취 시 처리
+    // 음식 섭취 처리
     if (head.x === food.x && head.y === food.y) {
         score += 10;
         document.getElementById('score').textContent = score;
@@ -97,50 +93,19 @@ document.addEventListener('keydown', function (event) {
     }
 });
 
-// 모바일 터치 이벤트 처리 (스와이프 방향 감지)
-canvas.addEventListener('touchstart', function (e) {
-    const touch = e.touches[0];
-    touchStartX = touch.clientX;
-    touchStartY = touch.clientY;
-    e.preventDefault();
-}, {passive: false});
-
-canvas.addEventListener('touchmove', function (e) {
-    e.preventDefault();
-}, {passive: false});
-
-canvas.addEventListener('touchend', function (e) {
-    const touch = e.changedTouches[0];
-    const touchEndX = touch.clientX;
-    const touchEndY = touch.clientY;
-
-    const diffX = touchEndX - touchStartX;
-    const diffY = touchEndY - touchStartY;
-
-    // 스와이프 기준값 (30px 이상 차이나면 스와이프로 인식)
-    if (Math.abs(diffX) > Math.abs(diffY)) {
-        if (Math.abs(diffX) > 30) {
-            if (diffX > 0 && velocity.x !== -1) {
-                velocity = {x: 1, y: 0};
-            } else if (diffX < 0 && velocity.x !== 1) {
-                velocity = {x: -1, y: 0};
-            }
-        }
-    } else {
-        if (Math.abs(diffY) > 30) {
-            if (diffY > 0 && velocity.y !== -1) {
-                velocity = {x: 0, y: 1};
-            } else if (diffY < 0 && velocity.y !== 1) {
-                velocity = {x: 0, y: -1};
-            }
-        }
-    }
-
-    // 터치 시작 좌표 초기화
-    touchStartX = null;
-    touchStartY = null;
-    e.preventDefault();
-}, {passive: false});
+// 하단 방향 버튼 클릭 이벤트 처리
+document.getElementById('btnUp').addEventListener('click', function () {
+    if (velocity.y !== 1) velocity = {x: 0, y: -1};
+});
+document.getElementById('btnDown').addEventListener('click', function () {
+    if (velocity.y !== -1) velocity = {x: 0, y: 1};
+});
+document.getElementById('btnLeft').addEventListener('click', function () {
+    if (velocity.x !== 1) velocity = {x: -1, y: 0};
+});
+document.getElementById('btnRight').addEventListener('click', function () {
+    if (velocity.x !== -1) velocity = {x: 1, y: 0};
+});
 
 // 난이도 선택에 따른 게임 속도 변경
 function startGameLoop() {
