@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <title>게임모음</title>
+    <style>
+        /* 목차 영역 스타일 */
+        nav {
+            background-color: #f2f2f2;
+            padding: 10px;
+            text-align: center;
+        }
+
+        nav ul {
+            list-style: none;
+            padding: 0;
+            display: inline-block;
+            text-align: left; /* 목록 내 텍스트를 왼쪽 정렬 */
+        }
+
+        nav li {
+            margin: 5px 0;
+        }
+
+        /* 링크 내부에 SVG와 텍스트를 수평 정렬 */
+        nav a {
+            text-decoration: none;
+            color: #333;
+            display: inline-flex; /* 인라인 플렉스 사용 */
+            align-items: center; /* 아이콘과 텍스트를 수직 중앙 정렬 */
+            /* justify-content: center; 제거 */
+        }
+
+        /* SVG 아이콘 기본 스타일 */
+        nav a svg {
+            width: 32px;
+            height: 32px;
+            margin-right: 8px;
+            fill: #333;
+        }
+    </style>
+</head>
+<body>
+<!-- 목차 부분 -->
+<nav id="index.toc">
+    <h2>목록</h2>
+    <ul>
+        <li>
+            <a href="snake/raise/main.html">
+                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64" width="32" height="32">
+                    <!-- 뱀의 머리 모양: 부드러운 곡선으로 둥글고 귀여운 느낌 -->
+                    <path d="M12,32 Q20,12 44,20 Q60,24 44,44 Q20,56 12,32 Z" fill="#8BC34A"/>
+                    <!-- 왼쪽 눈: 흰색 바탕에 검은 동공 -->
+                    <circle cx="20" cy="28" r="3" fill="#FFFFFF"/>
+                    <circle cx="20" cy="28" r="1.5" fill="#000000"/>
+                    <!-- 오른쪽 눈: 흰색 바탕에 검은 동공 -->
+                    <circle cx="30" cy="24" r="3" fill="#FFFFFF"/>
+                    <circle cx="30" cy="24" r="1.5" fill="#000000"/>
+                    <!-- 미소 짓는 입 모양 -->
+                    <path d="M25,40 Q32,46 39,40" stroke="#E91E63" stroke-width="2" fill="none" stroke-linecap="round"/>
+                    <!-- 뱀의 혀: 살짝 튀어나온 느낌의 붉은 선 -->
+                    <path d="M44,20 L50,16" stroke="#E91E63" stroke-width="2" stroke-linecap="round"/>
+                </svg>
+                1. 뱀 키우기
+            </a>
+        </li>
+    </ul>
+</nav>
