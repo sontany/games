@@ -9,15 +9,18 @@
             height: 100%;
             margin: 0;
         }
+
         body {
             display: flex;
             justify-content: center;
             align-items: center;
             background-color: #222;
         }
+
         #gameContainer {
             width: 400px;
         }
+
         /* 오버레이 UI: 캔버스 위쪽에 별도의 영역으로 배치 */
         #overlay {
             text-align: center;
@@ -26,13 +29,17 @@
             color: #fff;
             padding: 5px 0;
         }
+
         #overlay select {
             font-size: 16px;
         }
+
         canvas {
             border: 1px solid #333;
             background-color: #f0f0f0;
             display: block;
+            /* 터치 기본 동작 제거 */
+            touch-action: none;
         }
     </style>
 </head>
